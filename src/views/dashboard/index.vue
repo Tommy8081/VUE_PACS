@@ -10,12 +10,19 @@
 </template>
 
 <script>
+import { getTech } from '@/api/config'
   export default {
     data() {
       const generateData = _ => {
         const data = [];
-        const cities = ['上海', '北京', '广州', '深圳', '南京', '西安', '成都'];
+        let cities = [];
+        getTech().then(response => {
+          cities = response.data
+          console.log(response);
+        })
+        // const cities = ['上海', '北京', '广州', '深圳', '南京', '西安', '成都'];
         const pinyin = ['shanghai', 'beijing', 'guangzhou', 'shenzhen', 'nanjing', 'xian', 'chengdu'];
+        
         cities.forEach((city, index) => {
           data.push({
             label: city,
