@@ -6,3 +6,11 @@ export function getTech() {
     method: 'get'
   })
 }
+
+export function upload(data) {
+  return request({
+    url: '/upload',
+    method: 'post',
+    data
+  })
+}
